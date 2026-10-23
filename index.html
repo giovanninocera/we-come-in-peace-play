@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#05070f" />
+    <meta name="description" content="We Come in Peace: un survivors con gli alieni. Venivano in pace, gli umani no." />
+    <meta property="og:title" content="We Come in Peace" />
+    <meta property="og:description" content="Venivano in pace, gli umani no. Gioca dal telefono o dal PC." />
+    <meta property="og:image" content="./gioca/icons/icon-512.png" />
+    <link rel="icon" type="image/png" href="./gioca/icons/icon-192.png" />
+    <title>We Come in Peace</title>
+    <style>
+      :root {
+        --sky-top: #04060d;
+        --sky-bottom: #1c1242;
+        --card: #111b28;
+        --line: #2a3747;
+        --text: #dfe8f0;
+        --muted: #9fb3c4;
+        --lime: #9dff6a;
+        --play: #34c759;
+        --play-dark: #1c7a35;
+        --gold: #ffd166;
+        --violet: #c77dff;
+        --orange: #ff8c32;
+        color-scheme: dark;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: linear-gradient(180deg, var(--sky-top), var(--sky-bottom)) fixed;
+        color: var(--text);
+        font: 17px/1.5 'Trebuchet MS', 'Segoe UI', system-ui, sans-serif;
+      }
+      .stars {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image: radial-gradient(1.5px 1.5px at 12% 18%, #fff8, transparent), radial-gradient(1px 1px at 72% 12%, #fff9, transparent),
+          radial-gradient(1.5px 1.5px at 38% 62%, #fff6, transparent), radial-gradient(1px 1px at 86% 48%, #c9b8ffaa, transparent),
+          radial-gradient(1px 1px at 22% 82%, #fff7, transparent), radial-gradient(1.5px 1.5px at 58% 34%, #fff5, transparent),
+          radial-gradient(1px 1px at 92% 86%, #fff8, transparent), radial-gradient(1px 1px at 6% 52%, #fff6, transparent);
+      }
+      main {
+        position: relative;
+        max-width: 640px;
+        margin: 0 auto;
+        padding-block: max(28px, env(safe-area-inset-top, 0px)) 40px;
+        padding-left: max(16px, env(safe-area-inset-left, 0px));
+        padding-right: max(16px, env(safe-area-inset-right, 0px));
+        display: grid;
+        gap: 18px;
+      }
+      header {
+        text-align: center;
+        display: grid;
+        gap: 6px;
+        justify-items: center;
+      }
+      header img {
+        width: 96px;
+        height: 96px;
+        border-radius: 24px;
+        box-shadow: 0 0 32px #9dff6a55;
+      }
+      h1 {
+        margin: 8px 0 0;
+        font-size: clamp(40px, 11vw, 64px);
+        line-height: 0.95;
+        letter-spacing: 1px;
+        color: var(--lime);
+        text-shadow: 0 0 22px #9dff6a88, 0 4px 0 #0b2a12;
+        text-wrap: balance;
+      }
+      .tagline {
+        margin: 0;
+        color: var(--muted);
+        font-weight: bold;
+      }
+      .version {
+        font-size: 14px;
+        color: var(--muted);
+      }
+      .play {
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        font-size: 30px;
+        padding: 22px 16px 18px;
+        border-radius: 26px;
+        background: var(--play);
+        border: 3px solid #d8ffc4cc;
+        box-shadow: 0 7px 0 var(--play-dark), 0 0 0 10px #9dff6a22, 0 14px 30px #0008;
+        text-shadow: 0 2px 0 #145a26;
+      }
+      .play small {
+        display: block;
+        font-size: 15px;
+        font-weight: bold;
+        color: #eaffdf;
+      }
+      .play:active {
+        transform: translateY(5px);
+        box-shadow: 0 2px 0 var(--play-dark);
+      }
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+      }
+      .card {
+        background: #111b28ee;
+        border: 2px solid var(--line);
+        border-radius: 20px;
+        padding: 18px;
+        display: grid;
+        gap: 10px;
+        min-width: 0;
+      }
+      .card.android {
+        border-color: #9dff6a88;
+      }
+      .card.windows {
+        border-color: #6fd3ff88;
+      }
+      .card h2 {
+        margin: 0;
+        font-size: 21px;
+      }
+      .card ol {
+        margin: 0;
+        padding-left: 20px;
+        color: var(--muted);
+        font-size: 15px;
+      }
+      .download {
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        font-weight: bold;
+        color: #0b0f14;
+        background: var(--gold);
+        border-radius: 14px;
+        padding: 12px;
+      }
+      .note {
+        background: #111b28cc;
+        border: 2px dashed var(--line);
+        border-radius: 16px;
+        padding: 14px 16px;
+        color: var(--muted);
+        font-size: 15px;
+      }
+      .note b {
+        color: var(--text);
+      }
+      footer {
+        text-align: center;
+        color: #6f7d8c;
+        font-size: 13px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="stars"></div>
+    <main>
+      <header>
+        <img src="./gioca/icons/icon-512.png" alt="La testa di un alieno Grigio" />
+        <h1>WE COME<br />IN PEACE</h1>
+        <p class="tagline">Veniamo in pace. Davvero. Gli umani non ci credono.</p>
+        <span class="version">Versione di prova 0.38.0</span>
+      </header>
+
+      <a class="play" href="./gioca/">▶ Gioca nel browser<small>Telefono o PC, niente da installare</small></a>
+
+      <div class="note">
+        <b>Sul telefono, come un'app:</b> apri «Gioca nel browser», poi dal menu del browser scegli
+        «Aggiungi a schermata Home» (Chrome) o Condividi → «Aggiungi alla schermata Home» (Safari).
+        Parte a schermo intero e funziona anche senza rete.
+      </div>
+
+      <div class="cards">
+        <section class="card android">
+          <h2>🤖 Android</h2>
+          <a class="download" href="https://github.com/giovanninocera/we-come-in-peace-play/releases/download/v0.38.0/WeComeInPeace-0.38.0.apk">Scarica l'APK</a>
+          <ol>
+            <li>Apri il file scaricato.</li>
+            <li>Se lo chiede, consenti l'installazione da questa fonte («app sconosciute»).</li>
+            <li>Installa e gioca: in verticale, a schermo intero.</li>
+          </ol>
+        </section>
+        <section class="card windows">
+          <h2>🪟 Windows</h2>
+          <a class="download" href="https://github.com/giovanninocera/we-come-in-peace-play/releases/download/v0.38.0/WeComeInPeace-0.38.0.exe">Scarica per Windows</a>
+          <ol>
+            <li>Un solo file, parte senza installazione.</li>
+            <li>Se Windows avvisa che l'app non è firmata: «Ulteriori informazioni» → «Esegui comunque».</li>
+            <li>F11 per lo schermo intero.</li>
+          </ol>
+        </section>
+      </div>
+
+      <div class="note">
+        <b>I progressi</b> restano sul dispositivo e in ogni versione (browser, Android, Windows) sono separati:
+        per spostarli usa il codice da esportare e importare nelle Impostazioni del gioco.
+      </div>
+
+      <footer>Un gioco di Gio · fatto con Phaser · è una versione di prova: dimmi cosa ne pensi!</footer>
+    </main>
+  </body>
+</html>
